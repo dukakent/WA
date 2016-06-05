@@ -1,0 +1,59 @@
+/*  */
+
+/* General */
+.forecast-weekly {
+  background-color: rgba(255, 255, 255, .2);
+  padding: 0 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.forecast-weekly .item {
+  border-bottom: 2px rgba(255, 255, 255, .2) solid;
+  padding: 1.5em 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.forecast-weekly .item:last-child { border: none; }
+
+/* Styles for columns in items */
+.forecast-weekly .day {
+  font-size: 1.5em;
+  width: 2.5em;
+}
+
+.forecast-weekly .icon {
+  font-size: 1.8em;
+  width: 20%;
+}
+
+.forecast-weekly .temp-min,
+.forecast-weekly .temp-max { font-size: 1.2em; }
+
+.forecast-weekly .range {
+  width: 20%;
+  padding: 0 .625em;
+}
+
+.forecast-weekly .range-line {
+  width: 100%;
+  height: 1em;
+  background: #fff;
+  border-radius: 0.5em;
+}

@@ -1,0 +1,11 @@
+/**
+ * Created by inokentii on 17.04.2016.
+ */
+
+/* global $, define */
+
+define(['sun/sunView'], function (sunView) {
+  sunView.render();
+  $(window).resize(sunView.render);
+  sunView.update({ phase: 0.8 });
+});

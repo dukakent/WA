@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=10; IE=11; IE=EDGE">
+  <link rel="stylesheet" href="css/misc/reset.css">
+  <link rel="stylesheet" href="css/misc/icons.css">
+  <link rel="stylesheet" href="css/misc/swiper.min.css">
+  <link rel="stylesheet" href="css/general.css">
+  <link rel="stylesheet" href="css/background.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/forecast-daily/style.css">
+  <link rel="stylesheet" href="css/forecast-daily/responsive.css">
+  <link rel="stylesheet" href="css/forecast-weekly/style.css">
+  <link rel="stylesheet" href="css/forecast-weekly/responsive.css">
+  <link rel="stylesheet" href="css/setup/style.css">
+  <link rel="stylesheet" href="css/setup/responsive.css">
+  <title>Weather App</title>
+</head>
+<body>
+  <div class="bg cold noon">
+    <div class="dusk sunrise"></div>
+    <div class="dusk sunset"></div>
+    <div class="sun-orbit">
+      <div class="sun"></div>
+    </div>
+    <div class="drops">
+      <div class="drop drop-rain"></div>
+      <div class="drop drop-snow"></div>
+    </div>
+  </div>
+  <div class="wrapper">
+    <section class="forecast swiper-container">
+      <!-- Container with forecast for active location -->
+      <div class="swiper-wrapper">
+
+        <script id="gallery-item-template" type="text/template">
+
+          <section class="swiper-slide forecast-location" data-place-id="{{placeId}}">
+            <!-- Forecast for today -->
+            <section class="forecast-daily uppercase">
+              <div class="forecast-flex-item">
+                <!-- Info about last sync, location, date -->
+                <section class="weather-title">
+                  <div class="sync">
+                    <span class="sync-last-update">{{forecast.currently.timeShort}}</span>
+                    <button class="sync-icon icon-refresh"></button>
+                  </div>
+                  <div class="location-name">{{address.cityName}}</div>
+                  <div class="current-date">{{forecast.currently.dateLong}}</div>
+                </section>
+                <!-- weather for right now -->
+                <section class="weather-now">
+                  <div class="weather-now-icon left icon-{{forecast.currently.icon}}"></div>
+                  <div class="weather-now-info left">
+                    <div class="temp" data-unit="degree">{{forecast.currently.temperature.actual}}</div>
+                    <div class="weather-descr">{{forecast.currently.summary}}</div>
+                  </div>
+                  <div class="weather-now-moon right">
+                    <div class="moon-phase icon-{{forecast.currently.moonIcon}}"></div>
+                    <div class="moon-rise">6:20</div>
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+              <div class="forecast-flex-item">
+                <!-- weather for today, contains forecasts for each hour -->
+                <section class="weather-today align-center swiper-container">
+                  <div class="swiper-wrapper">
+                    {{#forecast.hourly.data}}
+                    <div class="one-fourth swiper-slide">
+                      <div class="time">{{timeShort}}</div>
+                      <div class="icon">
+                        <span class="icon-{{icon}}"></span>
+                      </div>
+                      <div class="value" data-unit="degree">{{temperature.actual}}</div>
+                    </div>
+                    {{/forecast.hourly.data}}
+                  </div>
+                  <div class="forecast-hours-scrollbar"></div>
+                </section>
+                <!-- Other information about humidity, wind etc -->
+                <section class="weather-misc align-center">
+                  <div class="one-fourth">
+                    <div class="icon">
+                      <span class="icon-humidity"></span>
+                    </div>
+                    <div class="value" data-unit="persent">{{forecast.currently.humidity}}</div>
+                  </div><!--
+               --><div class="one-fourth">
+                    <div class="icon">
+                      <span class="icon-wind-direction" data-wind-dir="{{forecast.currently.windDir}}"></span>
+                    </div>
+                    <div class="value" data-unit="m-per-s">{{forecast.currently.windSpeed}}</div>
+                  </div><!--
+               --><div class="one-fourth">
+                    <div class="icon">
+                      <span class="icon-sunrise"></span>
+                    </div>
+                    <div class="value">{{forecast.currently.sunriseTime}}</div>
+                  </div><!--
+               --><div class="one-fourth">
+                    <div class="icon">
+                      <span class="icon-sunset"></span>
+                    </div>
+                    <div class="value">{{forecast.currently.sunsetTime}}</div>
+                  </div>
+                </section>
+              </div>
+            </section>
+            <!-- Forecast per day for this week -->
+            <section class="forecast-weekly uppercase">
+              <!-- Forecast for a day (portrait) -->
+            </section>
+          </section>
+
+        </script>
+
+        <script id="gallery-item-daily-template" type="text/template">
+          <section class="item">
+            <div class="day">{{dayShort}}</div>
+            <div class="icon">
+              <span class="icon-{{icon}}"></span>
+            </div>
+            <div class="temp-min" data-unit="degree">{{temperatureMin.actual}}</div>
+            <div class="range">
+              <div class="range-line"></div>
+            </div>
+            <div class="temp-max" data-unit="degree">{{temperatureMax.actual}}</div>
+          </section>
+        </script>
+
+
+      </div>
+      <div class="forecast-dots swiper-pagination"></div>
+    </section>
+    <aside class="setup setup-hidden">
+      <div class="setup-container">
+        <section class="setup-locations">
+          <section class="menu">
+            <button class="setup-extend icon-menu"></button>
+            <input type="text" class="location-search" placeholder="">
+            <button class="location-add icon-add"></button>
+            <button class="location-submit icon-check"></button>
+            <button class="location-remove icon-delete"></button>
+          </section>
+
+
+          <section class="location-list location-added-list swiper-container">
+            <div class="swiper-wrapper">
+              <script id="location-added-template" type="text/template">
+                <div class="location-item swiper-slide" data-place-id="{{placeId}}">
+                  <div class="weather-icon grey">
+                    <span class="icon-{{forecast.currently.icon}}"></span>
+                  </div>
+                  <div class="weather-temp" data-unit="degree">{{forecast.currently.temperature.actual}}</div>
+                  <div class="location">
+                    <div class="location-name">{{address.cityName}}</div>
+                    <div class="weather-descr grey uppercase">{{forecast.currently.summary}}</div>
+                  </div>
+                  <div class="location-choose">
+                    <input type="checkbox" class="checkbox-location-choose" data-place-id="{{placeId}}">
+                    <span class="checked icon-check"></span>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+              </script>
+            </div>
+            <div class="location-added-list-scroll swiper-scrollbar"></div>
+          </section>
+          <section class="location-list location-found-list swiper-container">
+            <div class="swiper-wrapper">
+              <script id="location-found-template" type="text/template">
+                {{#cities}}
+                <div class="location-item swiper-slide" data-place-id="{{placeId}}">
+                  <div class="location">
+                    <div class="location-name">{{address.cityName}}</div>
+                    <div class="weather-descr grey uppercase">{{address.country}}</div>
+                  </div>
+                  <div class="location-choose">
+                    <input type="checkbox" class="checkbox-location-choose" data-place-id="{{placeId}}">
+                    <span class="checked icon-check"></span>
+                  </div>
+                  <div class="clear"></div>
+                </div>
+                {{/cities}}
+              </script>
+            </div>
+            <div class="location-found-list-scroll swiper-scrollbar"></div>
+          </section>
+        </section>
+
+
+        <section class="setup-view">
+          <section class="setup-temp">
+            <div class="left">
+            <span class="temp-mode temp-mode-celsius">
+              <input type="radio" name="setup-temp" class="radio-temp radio-temp-celsius">
+            </span>
+            <span class="temp-mode temp-mode-fahrenheit">
+              <input type="radio" name="setup-temp" class="radio-temp radio-temp-fahrenheit">
+            </span>
+            </div>
+            <div class="right">
+              <span class="setup-gear icon-settings"></span>
+            </div>
+            <div class="clear"></div>
+          </section>
+          <section class="setup-days">
+            <div class="range">
+              <div class="range-title">show weather for</div>
+              <div class="range-value" data-unit="days">1</div>
+              <div class="clear"></div>
+              <div class="range-slider">
+                <input type="range" min="1" max="7" step="1" value="1">
+              </div>
+            </div>
+          </section>
+          <section class="setup-update">
+            <div class="range">
+              <div class="range-title">update every</div>
+              <div class="range-value" data-unit="min">0</div>
+              <div class="clear"></div>
+              <div class="range-slider">
+                <input type="range" min="0" max="60" step="15" value="0">
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
+    </aside>
+  </div>
+
+  <script data-main="js/app.js" src="js/utils/require.js"></script>
+</body>
+</html>

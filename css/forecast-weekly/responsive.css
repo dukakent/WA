@@ -1,0 +1,69 @@
+/*  */
+
+/* smartphones landscape */
+@media (min-width: 568px) and (max-width: 799px) and (orientation: landscape) {
+
+  .forecast-weekly {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: .8em 0 2em 0;
+  }
+
+  .forecast-weekly .item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+  }
+
+  .forecast-weekly .day {
+    width: auto;
+  }
+
+  .forecast-weekly .icon {
+    width: auto;
+    padding: .4em 0 .4em 0;
+  }
+
+  .forecast-weekly .range {
+    width: auto;
+    height: 5em;
+    padding: .4em 0;
+  }
+
+  .forecast-weekly .range-line {
+    margin: 0 auto;
+    width: 1em;
+    height: 100%;
+  }
+
+}
+
+@media (min-width: 800px) and (orientation: landscape), (min-width: 1024px) {
+
+  .forecast-weekly .item {
+    padding: 1.2em 0;
+  }
+
+}
+
+@media (min-width: 1280px) {
+
+  .forecast-weekly .item {
+    padding: 1.3em 0;
+  }
+
+}

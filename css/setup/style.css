@@ -1,0 +1,293 @@
+/*  */
+
+.setup,
+.setup .setup-container {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.setup .setup-container {
+  background-color:  #081422;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.setup .setup-locations,
+.setup .setup-view {
+  box-sizing: border-box;
+  padding-left: 5%;
+}
+
+.setup .menu,
+.setup .location-item,
+.setup .setup-temp,
+.setup .setup-days,
+.setup .setup-update {
+  padding-right: 4%;
+}
+
+.setup .location-item,
+.setup .setup-days,
+.setup .setup-update {
+  border-top: 2px rgba(255, 255, 255, .2) solid;
+}
+
+.setup .location-item:last-child {
+  border-bottom: 2px rgba(255, 255, 255, .2) solid;
+}
+
+.setup .setup-locations {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  min-height: 160px;
+}
+
+/* Upper block with locations settings */
+.setup .menu {
+  min-height: 1em;
+  font-size: 1.7em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Field for searching locations  */
+.setup .location-search {
+  font-size: .8em;
+  border: none;
+  border-radius: .55em;
+  padding: 0 .5em;
+  margin-left: .8em;
+  background: #c1c4c8;
+  width: 100%;
+  height: 1.1em;
+  visibility: hidden;
+}
+
+.setup-locations-add .location-search {
+  visibility: visible;
+}
+
+/* Button for sidebar extending */
+.setup .setup-extend {
+  right: 0;
+  position: relative;
+}
+.setup-hidden .setup-extend { right: 2em; }
+
+/* Buttons for adding or removing locations */
+.setup-locations-add .location-add,
+.setup-locations-remove .location-remove { color: #ff4200; }
+
+.setup .location-submit,
+.setup .location-found-list,
+.setup-locations-add.submit-visible .location-remove,
+.setup-locations-remove.submit-visible .location-add,
+.setup-locations-add .location-added-list
+{ display: none; }
+
+.setup-locations-add.submit-visible .location-submit,
+.setup-locations-remove.submit-visible .location-submit,
+.setup-locations-add .location-found-list
+{ display: block; }
+
+.setup .location-search { margin-right: .5em; }
+
+.setup .location-remove,
+.setup-locations-add.submit-visible .location-submit
+{ margin-left: .6em; }
+
+.setup .location-add,
+.setup .location-submit,
+.setup .location-remove { cursor: pointer; }
+
+
+
+/* Chosen locations */
+.setup .setup-locations,
+.setup .location-list { height: 100%; }
+.setup .location-list { width: 100%; }
+.setup .location-item {
+  box-sizing: border-box;
+  padding-top: .9em;
+  padding-bottom: .9em;
+  height: auto;
+}
+
+.setup .weather-icon,
+.setup .weather-temp,
+.setup .location { float: left; }
+
+.setup .weather-icon,
+.setup .weather-temp { display: none; }
+
+.setup .weather-icon {
+  position: relative;
+  top: .05em;
+  font-size: 2.8em;
+  width: 1.1em;
+}
+
+.setup .weather-temp {
+  font-size: 2.5em;
+  width: 1.7em;
+}
+
+.setup .location-name {
+  font-size: 1.3em;
+  padding-bottom: .3em;
+}
+
+.setup .weather-descr { font-size: 0.9em; }
+
+/* Checkboxes */
+.setup .location-choose {
+  color: #fb3f00;
+  position: relative;
+  top: .8em;
+  float: right;
+  width: 1.5em;
+  height: 1.5em;
+  background: #000;
+  visibility: hidden;
+}
+
+.setup-locations-add .location-choose,
+.setup-locations-remove .location-choose { visibility: visible; }
+
+.setup .checkbox-location-choose {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  filter: alpha(opacity=0);
+  cursor: pointer;
+}
+
+.setup .checked {
+  position: absolute;
+  font-size: 1.5em;
+  visibility: hidden;
+}
+
+.setup-locations-add .checkbox-location-choose:checked + .checked,
+.setup-locations-remove .checkbox-location-choose:checked + .checked { visibility: visible; }
+
+/* Scroll */
+.location-scroll .swiper-scrollbar-drag { background: #fff; }
+
+/* Block for view setup */
+.setup .setup-view { background-color: #152132; }
+
+/* Radio buttons for choosing temp view mode */
+.setup .setup-temp {
+  padding-top: 1.2em;
+  padding-bottom: 1.5em;
+}
+
+.setup .radio-temp {
+  cursor: pointer;
+  visibility: hidden;
+  height: 1em;
+  width: 1em;
+}
+
+.setup .radio-temp:checked { color: #fff; }
+.setup .radio-temp:before { visibility: visible; }
+.setup .radio-temp-celsius:before { content: '\00B0 C'; }
+.setup .radio-temp-fahrenheit:before { content: '\00B0 F'; }
+
+.setup .temp-mode {
+  color: #6e7279;
+  font-size: 1.6em;
+}
+
+.setup .temp-mode-celsius {
+  border-right: 1px rgba(255, 255, 255, .2) solid;
+  padding-right: 1em;
+}
+
+.setup .temp-mode-fahrenheit { padding-left: 1em; }
+
+.setup .setup-gear {
+  position: relative;
+  font-size: 1.6em;
+  top: .2em;
+}
+
+/* Ranges */
+.setup .range { padding: 1.3em 15% 1.3em 5%; }
+
+.setup .range-title {
+  text-transform: uppercase;
+  color: #6e7279;
+  float: left;
+}
+.setup .range-value {
+  float: right;
+}
+
+.setup .range-slider {
+  padding-top: 0.5em;
+}
+
+/* range inputs */
+.setup input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+.setup input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.5em;
+  height: 1.5em;
+  background: #000;
+  border: .5em #fff solid;
+  border-radius: 50%;
+  margin-top: -.6em;
+}
+
+.setup input[type="range"]:focus {
+  outline: none;
+}
+
+.setup input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: .25em;
+  cursor: pointer;
+  background: #000;
+}

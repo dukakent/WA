@@ -1,0 +1,128 @@
+/*  */
+
+.forecast-daily .weather-now,
+.forecast-daily .weather-today,
+.forecast-daily .weather-misc {
+  border-bottom: 2px rgba(255, 255, 255, .2) solid;
+}
+
+.forecast-daily .weather-misc:last-child {
+  border: none;
+}
+
+/* Header */
+.forecast-daily .sync {
+  font-size: 1.2em;
+  line-height: 1.1;
+}
+
+.forecast-daily .sync-icon {
+  font-size: 1.4em;
+  position: relative;
+  top: .28em;
+}
+
+.forecast-daily .location-name,
+.forecast-daily .current-date {
+  letter-spacing: 0.2em;
+  line-height: 1.1;
+}
+
+.forecast-daily .location-name { font-size: 2.8em; }
+
+.forecast-daily .current-date { font-size: 1.5em; }
+
+/* Weather for now */
+.forecast-daily .weather-now {
+  padding: 1.3em 0;
+}
+
+.forecast-daily .weather-now .weather-now-icon { font-size: 7em; }
+
+.forecast-daily .weather-now .temp { font-size: 4.5em; }
+
+.forecast-daily .weather-now .weather-descr { font-size: 0.8em;
+  padding-left: 1.2em;
+}
+
+.weather-now-moon { display: none; }
+
+.forecast-daily .weather-now .moon-phase {
+  font-size: 3em;
+  height: 1.4em;
+}
+
+.forecast-daily .weather-now .moon-rise {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/* Last two containers with hourly weather and misc */
+.forecast-daily .weather-today,
+.forecast-daily .weather-misc {
+  padding: 1.5em 0;
+}
+
+/* Griding */
+.forecast-daily .one-fourth {
+  display: inline-block;
+  width: 25%;
+  box-sizing: border-box;
+}
+
+.forecast-daily .one-fourth .time { font-size: .8em; }
+
+.forecast-daily .one-fourth .icon {
+  position: relative;
+  top: 0.1em;
+  font-size: 3em;
+}
+
+.forecast-daily .one-fourth .value { font-size: 1.8em; }
+
+/* Wind direction pointer */
+.forecast-daily [data-wind-dir]:before {
+  position: absolute;
+  bottom: 0;
+  left: 25%;
+  transition: transform .5s ease;
+}
+.forecast-daily [data-wind-dir="sw"]:before {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.forecast-daily [data-wind-dir="w"]:before {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg); transform:
+  rotate(90deg);
+}
+.forecast-daily [data-wind-dir="nw"]:before {
+  -webkit-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+.forecast-daily [data-wind-dir="n"]:before {
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg); transform: rotate(180deg);
+}
+.forecast-daily [data-wind-dir="ne"]:before {
+  -webkit-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+.forecast-daily [data-wind-dir="e"]:before {
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+.forecast-daily [data-wind-dir="se"]:before {
+  -webkit-transform: rotate(315deg);
+  -ms-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+.forecast-daily [data-wind-dir="s"]:before {
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg);
+}

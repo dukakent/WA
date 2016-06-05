@@ -1,0 +1,50 @@
+/*  */
+
+@media (min-width: 320px) {
+  .setup .weather-icon,
+  .setup .weather-temp { display: block; }
+}
+
+@media (min-width: 568px) and (max-width: 799px) and (orientation: landscape) {
+
+  .setup .setup-container { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; }
+  .setup .setup-locations { -webkit-flex-basis: 57%; -ms-flex-preferred-size: 57%; flex-basis: 57%; }
+  .setup-view { -webkit-flex-basis: 43%; -ms-flex-preferred-size: 43%; flex-basis: 43%; }
+
+  .setup .setup-locations,
+  .setup .setup-view { padding-left: 2%; }
+
+  .setup .setup-temp {
+    padding-top: .78em;
+    padding-bottom: .78em;
+  }
+
+  .setup .range {
+    padding-right: 10%;
+    padding-top: 1.7em;
+    padding-bottom: 1.7em;
+  }
+
+}
+
+@media (min-width: 768px) and (orientation: portrait) , (min-width: 800px) {
+
+  .setup-hidden .setup-extend {
+    right: 2.2em;
+  }
+
+}
+
+@media (min-width: 1024px) {
+
+  .setup-hidden .setup-extend {
+    right: 2.4em;
+  }
+
+  .setup .location-item {
+    padding-top: .7em;
+    padding-bottom: .7em;
+  }
+
+}
+
